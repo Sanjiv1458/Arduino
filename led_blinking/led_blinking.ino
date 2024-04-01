@@ -1,18 +1,13 @@
-#define led1 13
-#define led2 12
+// Define the pin for the IR sensor
+const int IR_PIN = 2;
 
 void setup() {
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
+  Serial.begin(9600); // Initialize serial communication
+  pinMode(IR_PIN, INPUT); // Set the IR pin as an input
 }
 
 void loop() {
-  digitalWrite(led1, HIGH);
-  delay(500);
-  digitalWrite(led1, LOW);
-  delay(1000);
-  digitalWrite(led2, HIGH);
-  delay(500);
-  digitalWrite(led2, LOW);
-  delay(1000);
+  int IR_value = digitalRead(IR_PIN); // Read the value from the IR sensor
+  Serial.println(IR_value); // Print the value to the serial monitor
+  delay(100); // Delay for 100 milliseconds
 }
